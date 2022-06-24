@@ -10,25 +10,28 @@ customElements.define(
       this.render();
     }
     render() {
-      const variant = this.getAttribute("variant") || "body;";
+      const variant = this.getAttribute("variant") || "body";
       const div = document.createElement("div");
       const style = document.createElement("style");
       style.innerHTML = `
         .titulo{
-          font-family: "Gluten";
+          font-family: "Odibee Sans";
           font-size: 78px;
           color: #009048;
           margin: 0;
         }
         .right{
-          font-family: 'Odibee Sans', cursive;;
+          font-family: 'Odibee Sans', cursive;
           font-size: 55px;
           text-align: right;
         }
         .body{
-          font-family: 'Odibee Sans', cursive;;
+          font-family: 'Odibee Sans', cursive;
           font-size: 55px;
           text-align: center;
+        }
+        .titulo > span {
+          color: #0090487a;
         }
         `;
       div.className = variant;

@@ -1,4 +1,4 @@
-type Jugada = "piedra" | "papel" | "tijeras";
+type Jugada = "piedra" | "papel" | "tijera";
 type Game = {
   computerPlay: Jugada;
   myPlay: Jugada;
@@ -6,20 +6,21 @@ type Game = {
 const state = {
   data: {
     currentGame: {
-      myPlay: "",
       computerPlay: "",
+      myPlay: "",
     },
-    history: {
-      Yo: 0,
-      Maquina: 0,
-    },
+    history: JSON.parse(localStorage.getItem("saved-state")!) || [],
   },
+  listeners: [],
   getState() {
     return this.data;
   },
   setMove(move: Jugada) {
-    let currentState = this.getState();
+    const currentState = this.getState();
     currentState.currentGame.myPlay = move;
+    currentState.currentGame.computerPlay = this.computerMove();
+    const resultado = currentState.currentGame;
+    return resultado;
   },
   clearCurrentGame() {
     const currentState = this.getState();
@@ -31,16 +32,15 @@ const state = {
     const randomN = Math.floor(Math.random() * 3);
     return moves[randomN];
   },
-  pushToHistory(play: any) {
+  pushToHistory(play: Game) {
     this.data.history.push(play);
     localStorage.setItem("saved-state", JSON.stringify(this.data.history));
   },
-
   whoWins(myPlay: Jugada, computerPlay: Jugada) {
     let result = "";
-    const ganoConPiedra = myPlay == "piedra" && computerPlay == "tijeras";
+    const ganoConPiedra = myPlay == "piedra" && computerPlay == "tijera";
     const ganoConPapel = myPlay == "papel" && computerPlay == "piedra";
-    const ganoConTijeras = myPlay == "tijeras" && computerPlay == "papel";
+    const ganoConTijeras = myPlay == "tijera" && computerPlay == "papel";
     const gane = [ganoConPapel, ganoConPiedra, ganoConTijeras].includes(true);
 
     if (myPlay === computerPlay) {
@@ -52,7 +52,6 @@ const state = {
     }
     return result;
   },
-
   score() {
     const history = this.getState().history;
     const respuesta = {
@@ -72,5 +71,4 @@ const state = {
     return respuesta;
   },
 };
-
 export { state };

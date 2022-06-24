@@ -1,5 +1,5 @@
 customElements.define(
-  "boton",
+  "custom-button",
   class extends HTMLElement {
     constructor() {
       super();

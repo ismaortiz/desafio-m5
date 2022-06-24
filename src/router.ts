@@ -40,7 +40,7 @@ export function initRouter(container: Element) {
     }
   }
   if (location.pathname == "/") {
-    goTo("/game-ptt");
+    goTo("/welcome");
   } else {
     handleRoute(location.pathname);
   }

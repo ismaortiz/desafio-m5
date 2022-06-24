@@ -19,7 +19,7 @@ export function result(params) {
   <div class="score-container">
     <custom-text variant="body">Score</custom-text>
     <custom-text variant="right" style="text-align: right">Vos: ${resultado.you}</custom-text>
-    <custom-text variant="right" style="text-align: right">Maquina ${resultado.maquina}</custom-text>
+    <custom-text variant="right" style="text-align: right">Maquina: ${resultado.maquina}</custom-text>
   </div>
   <custom-button class="button-return">Volver a Jugar</custom-button>
   <div>

@@ -3,7 +3,7 @@ export function welcome(params) {
   const style = document.createElement("style");
   div.className = "page-a";
   div.innerHTML = `
-    <custom-text variant="titulo">Piedra Papel o Tijera</custom-text>
+    <custom-text variant="titulo">Piedra, Papel <span>ó</span> <br> Tijeras</custom-text>
     <custom-button class="start-button">Empezar</custom-button>
     <div class="container">
       <custom-hand type="tijera"></custom-hand>
