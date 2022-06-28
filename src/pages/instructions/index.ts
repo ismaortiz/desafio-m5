@@ -5,6 +5,7 @@ export function instructions(params) {
   div.innerHTML = `
   <custom-text variant="body">
     Presioná jugar y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.
+    Ten en cuenta que sólo se aceptara tu primer elección.
   </custom-text>
   <custom-button class="play-button">¡Jugar!</custom-button>
   <div class="container">

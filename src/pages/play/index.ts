@@ -85,7 +85,7 @@ export function play(params) {
     hand.addEventListener("change", (e: any) => {
       const jugada = e.detail.jugada;
       hand.style.alignSelf = "center";
-      const resultado: object = state.setMove(jugada)!;
+      const resultado = state.setMove(jugada)!;
       state.pushToHistory({ ...resultado });
     });
   }

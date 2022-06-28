@@ -3,6 +3,12 @@ import { instructions } from "./pages/instructions";
 import { play } from "./pages/play";
 import { result } from "./pages/result";
 
+const BASE_PATH = "/desafio-m5";
+
+function isGithubPages() {
+  return location.host.includes("github.io");
+}
+
 const routes = [
   {
     path: /\/welcome/,
@@ -24,12 +30,15 @@ const routes = [
 
 export function initRouter(container: Element) {
   function goTo(path) {
-    history.pushState({}, "", path);
-    handleRoute(path);
+    const completePath = isGithubPages() ? BASE_PATH + path : path;
+    history.pushState({}, "", completePath);
+    handleRoute(completePath);
   }
   function handleRoute(route) {
     for (const r of routes) {
-      if (r.path.test(route)) {
+      console.log("El handleRoute recibió una nueva ruta", route);
+      const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
+      if (r.path.test(newRoute)) {
         const el = r.component({ goTo: goTo });
 
         if (container.firstChild) {
@@ -39,7 +48,7 @@ export function initRouter(container: Element) {
       }
     }
   }
-  if (location.pathname == "/") {
+  if (location.pathname == "/desafio-m5/" || location.pathname == "/") {
     goTo("/welcome");
   } else {
     handleRoute(location.pathname);

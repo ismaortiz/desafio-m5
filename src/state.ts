@@ -17,10 +17,12 @@ const state = {
   },
   setMove(move: Jugada) {
     const currentState = this.getState();
-    currentState.currentGame.myPlay = move;
-    currentState.currentGame.computerPlay = this.computerMove();
-    const resultado = currentState.currentGame;
-    return resultado;
+    if (currentState.currentGame.myPlay == "") {
+      currentState.currentGame.myPlay = move;
+      currentState.currentGame.computerPlay = this.computerMove();
+      const resultado = currentState.currentGame;
+      return resultado;
+    }
   },
   clearCurrentGame() {
     const currentState = this.getState();
