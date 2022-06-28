@@ -4,3 +4,12 @@
   box-sizing: border-box;
   font-family: "Odibee Sans";
 }
+
+body {
+  background-image: url("./imgs/fondo.svg");
+}
+
+.root {
+  width: 100vw;
+  height: 100vh;
+}

@@ -8,11 +8,6 @@ export function instructions(params) {
     Ten en cuenta que sólo se aceptara tu primer elección.
   </custom-text>
   <custom-button class="play-button">¡Jugar!</custom-button>
-  <div class="container">
-    <custom-hand type="tijera"></custom-hand>
-    <custom-hand type="piedra"></custom-hand>
-    <custom-hand type="papel"></custom-hand>
-  </div>
   `;
   style.innerHTML = `
   .page-b {
@@ -27,6 +22,7 @@ export function instructions(params) {
     display:flex;
     justify-content: space-around;
     align-items: flex-end;
+    gap: 30px;
   }
   @media (min-width: 951px) {
     .page-b {

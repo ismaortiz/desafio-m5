@@ -63,16 +63,19 @@ export function play(params) {
     margin: 0 auto;
     max-width: 375px;
     display: flex;
+    height: 100%;
+    justify-content: space-between;
     flex-direction: column;
   }
   .container{
       display:flex;
-      justify-content: space-between;
+      justify-content: space-around;
       height: 310px;
       align-items: flex-end;
   }
-  @media (min-width: 951px) {
+  @media (min-width: 768px) {
     .page-c {
+      max-width: 70%;
       gap: 150px;
       height: 100vh;
       justify-content: flex-center;
